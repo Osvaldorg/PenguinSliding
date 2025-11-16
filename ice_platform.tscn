@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://w7oqh7uxy5w4"]
+
+[ext_resource type="Script" uid="uid://dm8co2op3qhk5" path="res://ice_platform.gd" id="1_iacnx"]
+[ext_resource type="Texture2D" uid="uid://1yh6soecg2rb" path="res://textures/ice_block.png" id="2_nymv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b715"]
+size = Vector2(128, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iacnx"]
+size = Vector2(128, 8)
+
+[node name="IcePlatform" type="StaticBody2D"]
+script = ExtResource("1_iacnx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+scale = Vector2(4, 1)
+texture = ExtResource("2_nymv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_2b715")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(10, -20)
+shape = SubResource("RectangleShape2D_iacnx")
